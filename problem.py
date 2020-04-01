@@ -1,5 +1,21 @@
 #创建一个学生管理系统交互界面的项目
 
+from tkinter import *
+import tkinter.messagebox as messagebox
+
+#第二部分：设置初始教师和学生信息并定义login
+teacher={'admin':{'Pwd':'123456','Name':'Admin'},'admin2':{'Pwd':'987654321','Name':'Admin2'}}
+student={'BZB':100,'Bzb':80,'bzb':95}
+#字典分别保存教师和学生信息
+def login(name,password):  #判断是否登录成功的指令
+    if name.get() not in teacher.keys():
+        defeat()
+    elif name.get() in teacher.keys():
+        if teacher[name.get()]['Pwd']!=password.get():
+            defeat()
+        else:
+            access()
+
 #第一部分：设计学生管理系统登录界面
 top=Tk()   #学生管理系统登录界面
 top.geometry('320x220')

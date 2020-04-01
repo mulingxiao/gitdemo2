@@ -3,6 +3,11 @@
 from tkinter import *
 import tkinter.messagebox as messagebox
 
+#第四部分：查询成绩操作
+def check():  #查询成绩指令
+    for i in student.keys():
+        print(i,':',student[i])
+
 #第三部分：登录成功后页面跳转到学生管理界面及登陆失败提示
 def manage():  #学生管理系统页面
     top=Tk()

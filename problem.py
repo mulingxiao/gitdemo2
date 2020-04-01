@@ -3,6 +3,32 @@
 from tkinter import *
 import tkinter.messagebox as messagebox
 
+#第五部分：添加成绩操作
+def add_access(add_name,score):  #添加学成成绩成功的指令
+    student[add_name.get()]=score.get()
+    messagebox.showinfo('成功','%s成绩添加成功！'%add_name.get())
+def add_check(add_name):  #判断是否添加学生成绩的指令
+    if add_name.get() in student.keys():
+        messagebox.showerror('错误','该学生已存在')
+    else:  #添加学生信息——成绩页面
+        top=Tk()
+        top.geometry('200x150')
+        top.title('提示')
+        Label(top,text='请输入学生成绩').place(x=30,y=20)
+        score=Entry(top,bd=5)
+        score.place(x=30,y=50)
+        Button(top,text='OK',width=5,height=1,command=lambda:add_access(add_name,score)).place(x=40,y=100)
+        Button(top,text='Cancel',width=5,height=1,command=top.destroy).place(x=110,y=100)
+def add():  #添加学生信息——姓名页面
+    top=Tk()
+    top.geometry('200x150')
+    top.title('提示')
+    Label(top,text='请输入学生姓名').place(x=30,y=20)
+    add_name=Entry(top,bd=5)
+    add_name.place(x=30,y=50)
+    Button(top,text='OK',width=5,height=1,command=lambda:add_check(add_name,)).place(x=40,y=100)
+    Button(top,text='Cancel',width=5,height=1,command=top.destroy).place(x=110,y=100)
+
 #第四部分：查询成绩操作
 def check():  #查询成绩指令
     for i in student.keys():
